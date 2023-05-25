@@ -1,0 +1,477 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2015 Jan Küster
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+
+%============================================================================%
+%
+%	DOCUMENT DEFINITION
+%
+%============================================================================%
+
+%we use article class because we want to fully customize the page and dont use a cv template
+\documentclass[10pt,A4]{article}	
+
+
+%----------------------------------------------------------------------------------------
+%	ENCODING
+%----------------------------------------------------------------------------------------
+
+%we use utf8 since we want to build from any machine
+\usepackage[utf8]{inputenc}		
+
+%----------------------------------------------------------------------------------------
+%	LOGIC
+%----------------------------------------------------------------------------------------
+
+% provides \isempty test
+\usepackage{xifthen}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% some tex-live fonts - choose your own
+
+%\usepackage[defaultsans]{droidsans}
+%\usepackage[default]{comfortaa}
+%\usepackage{cmbright}
+\usepackage[default]{raleway}
+%\usepackage{fetamont}
+%\usepackage[default]{gillius}
+%\usepackage[light,math]{iwona}
+%\usepackage[thin]{roboto} 
+
+% set font default
+\renewcommand*\familydefault{\sfdefault} 	
+\usepackage[T1]{fontenc}
+
+% more font size definitions
+\usepackage{moresize}		
+
+
+%----------------------------------------------------------------------------------------
+%	PAGE LAYOUT  DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+%debug page outer frames
+%\usepackage{showframe}			
+
+
+%define page styles using geometry
+\usepackage[a4paper]{geometry}		
+
+% for example, change the margins to 2 inches all round
+\geometry{top=1.25cm, bottom=-.6cm, left=1.5cm, right=1.5cm} 	
+
+%use customized header
+\usepackage{fancyhdr}				
+\pagestyle{fancy}
+
+%less space between header and content
+\setlength{\headheight}{-5pt}		
+
+
+%customize entries left, center and right
+%\lhead{}
+%\chead{}
+%\rhead{}
+
+
+%indentation is zero
+\setlength{\parindent}{0mm}
+
+%----------------------------------------------------------------------------------------
+%	TABLE /ARRAY DEFINITIONS
+%---------------------------------------------------------------------------------------- 
+
+%for layouting tables
+\usepackage{multicol}			
+\usepackage{multirow}
+
+%extended aligning of tabular cells
+\usepackage{array}
+
+\newcolumntype{x}[1]{%
+>{\raggedleft\hspace{0pt}}p{#1}}%
+
+
+%----------------------------------------------------------------------------------------
+%	GRAPHICS DEFINITIONS
+%---------------------------------------------------------------------------------------- 
+
+%for header image
+\usepackage{graphicx}
+
+%for floating figures
+\usepackage{wrapfig}
+\usepackage{float}
+%\floatstyle{boxed} 
+%\restylefloat{figure}
+
+%for drawing graphics		
+\usepackage{tikz}				
+\usetikzlibrary{shapes, backgrounds,mindmap, trees}
+
+
+%----------------------------------------------------------------------------------------
+%	Color DEFINITIONS
+%---------------------------------------------------------------------------------------- 
+
+\usepackage{color}
+
+%accent color
+\definecolor{sectcol}{RGB}{0,150,255}
+
+%dark background color
+\definecolor{bgcol}{RGB}{110,110,110}
+
+%light background / accent color
+\definecolor{softcol}{RGB}{225,225,225}
+
+
+%============================================================================%
+%
+%
+%	DEFINITIONS
+%
+%
+%============================================================================%
+
+%----------------------------------------------------------------------------------------
+% 	HEADER
+%----------------------------------------------------------------------------------------
+
+% remove top header line
+\renewcommand{\headrulewidth}{0pt} 
+
+%remove botttom header line
+\renewcommand{\footrulewidth}{0pt}	  	
+
+%remove pagenum
+\renewcommand{\thepage}{}	
+
+%remove section num		
+\renewcommand{\thesection}{}			
+
+%----------------------------------------------------------------------------------------
+% 	ARROW GRAPHICS in Tikz
+%----------------------------------------------------------------------------------------
+
+% a six pointed arrow poiting to the left
+\newcommand{\tzlarrow}{(0,0) -- (0.2,0) -- (0.3,0.2) -- (0.2,0.4) -- (0,0.4) -- (0.1,0.2) -- cycle;}	
+
+% include the left arrow into a tikz picture
+% param1: fill color
+%
+\newcommand{\larrow}[1]
+{\begin{tikzpicture}[scale=0.58]
+	 \filldraw[fill=#1!100,draw=#1!100!black]  \tzlarrow
+ \end{tikzpicture}
+}
+
+% a six pointed arrow poiting to the right
+\newcommand{\tzrarrow}{ (0,0.2) -- (0.1,0) -- (0.3,0) -- (0.2,0.2) -- (0.3,0.4) -- (0.1,0.4) -- cycle;}
+
+% include the right arrow into a tikz picture
+% param1: fill color
+%
+\newcommand{\rarrow}
+{\begin{tikzpicture}[scale=0.7]
+	\filldraw[fill=sectcol!100,draw=sectcol!100!black] \tzrarrow
+ \end{tikzpicture}
+}
+
+
+
+%----------------------------------------------------------------------------------------
+%	custom sections
+%----------------------------------------------------------------------------------------
+
+% create a coloured box with arrow and title as cv section headline
+% param 1: section title
+%
+\newcommand{\cvsection}[1]
+{
+	\begin{center}
+		\large\textcolor{sectcol}{\textbf{#1}}
+	\end{center}
+}
+
+%create a coloured arrow with title as cv meta section section
+% param 1: meta section title
+%
+\newcommand{\metasection}[2]
+{
+%\begin{tabular*}{1\textwidth}{r r}
+\footnotesize{#2} \hspace*{\fill} \footnotesize{#1}\\[1pt]
+%\end{tabular*}
+}
+
+%----------------------------------------------------------------------------------------
+%	 CV EVENT
+%----------------------------------------------------------------------------------------
+
+% creates a stretched box as cv entry headline followed by some paragraphs about 
+% the work you did
+% param 1:	event time i.e. 2014 or 2011-2014 etc.
+% param 2:	event name (what did you do?)
+% param 3:	institution (where did you work / study)
+% param 4:	list of paragraphs
+%
+\newcommand{\cvevent}[4]
+{
+
+\begin{tabular*}{1\textwidth}{p{13.6cm}  x{3.9cm}}
+	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
+\end{tabular*}
+
+\vspace{-8pt}
+\textcolor{softcol}{\hrule}
+\vspace{6pt}
+
+	\foreach \desc in {#4}{
+		$\cdot$ \desc\\[3pt]
+	}
+	
+\vspace{3pt}
+}
+
+\newcommand{\cveventwithkeywords}[5]
+{
+
+\begin{tabular*}{1\textwidth}{p{13.6cm}  x{3.9cm}}
+	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
+\end{tabular*}
+
+\vspace{-8pt}
+\textcolor{softcol}{\hrule}
+\vspace{6pt}
+
+	\foreach \desc in {#4}{
+		$\cdot$ \desc\\[3pt]
+    }
++{\setlength{\parindent}{7pt} \footnotesize \textbf{Skills:} #5}\\
+
+\vspace{3pt}
+
+}
+% creates a stretched box as 
+\newcommand{\cveventmeta}[2]
+{
+	\mbox{\mystrut \hspace{87pt}\textit{#1}}\\
+	#2
+}
+
+%----------------------------------------------------------------------------------------
+% CUSTOM STRUT FOR EMPTY BOXES
+%----------------------------------------- -----------------------------------------------
+\newcommand{\mystrut}{\rule[-.3\baselineskip]{0pt}{\baselineskip}}
+
+%----------------------------------------------------------------------------------------
+% CUSTOM LOREM IPSUM
+%----------------------------------------------------------------------------------------
+\newcommand{\lorem}
+{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.}
+
+
+
+%============================================================================%
+%
+%
+%
+%	DOCUMENT CONTENT
+%
+%
+%
+%============================================================================%
+\begin{document}
+
+
+%use our custom fancy header definitions
+\pagestyle{fancy}	
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+%\begin{figure}[H]
+%\begin{flushright}
+%	\includegraphics[trim= 320 130 460 210,clip,width=0.2\linewidth]{myfoto.jpg}	%trimming relative to image size!
+%\end{flushright}
+%\end{figure}
+
+
+%---------------------------------------------------------------------------------------
+%	TITLE HEADLINE
+%----------------------------------------------------------------------------------------
+\vspace{-8pt}
+\begin{center}
+	\HUGE \textsc{Renato Prado} \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} \textsc{Resume}\\[2pt]
+	\small DevOps Engineer
+\end{center}
+
+
+
+\vspace{6pt}
+
+
+%---------------------------------------------------------------------------------------
+%	META SECTION
+%----------------------------------------------------------------------------------------
+\metasection{São paulo, Brazil}{\textbf{Fields:} Software Engineering} 
+\metasection{renato\_prado@msn.com}{\textbf{Techs:} Kubernetes, Terraform, Ansible, Packer, Argocd, AWS, GCP}
+\metasection{+55 11 96999 7509}{\textbf{Programming Languages:} Python, Bash, Go, Javascript}
+\metasection{13/11/1990}{\textbf{github:} prkstaff}
+\vspace{-2pt}
+\textcolor{softcol}{\hrule}
+\vspace{6pt}
+
+\normalsize
+
+%---------------------------------------------------------------------------------------
+%	SUMMARAY (optional)
+%----------------------------------------------------------------------------------------
+\vspace{-6pt}
+\cvsection{Summary}
+I'm passionate about automating processes, maintaining reliable systems, and helping developers deliver their code.\\
+
+\textbf{6+ Years working with Kubernetes cluster administration:}\\
+I've helped companies to migrate their products to a Kubernetes environment, I've setup new cluster but also maintained and improved existing ones. I use Terraform and ArgoCD to automate the cluster and deployments so few manual steps are required even in the case of a cluster recreation. I've setup workloads scaling based on istio and custom metrics.\\
+
+\textbf{3+ Years working with IAC and CAC:}\\
+I want to bring to my clients infrastructures that are auditable, that can reflect what is under version control, that can be immutable when possible. For these purposes I use tools like Terraform, Ansible and Packer and Docker.\\
+
+\textbf{Programming background:}\\
+I started my career as a developer and I've worked with Actionscript, Javascript and Python. I've also worked with frameworks like Django and Flask. This background helped me to write some programs that was useful to my clients.\\
+
+%============================================================================%
+%
+%	CV SECTIONS AND EVENTS (MAIN CONTENT)
+%
+%============================================================================%
+
+%---------------------------------------------------------------------------------------
+%	EXPERIENCE
+%----------------------------------------------------------------------------------------
+\cvsection{Experience}
+
+\cveventwithkeywords{Jun 2021 - present}{DevOps Engineer}{Joyjet Digital}{
+    {Cut the costs of the Kubernetes Cluster by 75\% by fixing pods requirements and autoscaling strategies},
+    {Secured the Kubernetes Infrastructure by implementing IAC and CAC and GitOps using Terraform, Terragrunt and Argocd},
+    {Recovered a broken Production Kubernetes Cluster by thankfully had implemented IAC and CAC before},
+    {Supported the development team with the infrastructure and deployment of the projects},
+    {Secured our Haproxy by implementing Hight Availability architecture},
+	{Implemented a monitoring system using Prometheus and Grafana},
+    {Implemented a alerting system using grafana and Pagerduty},
+    {Maintained and created Elastic Beanstalk environments},
+    {Implemented Twingate Zero Trust network for the company so we could have a secure access to our cloud resources},
+    {Implemented an Api Caching system using Varnish so we could reduce the load on our servers},
+    {Maintained Jenkins CI/CD pipelines},
+    {Scaled workloads using istio and custom metrics using prometheus and Keda},
+    {Secured sensitive data under version control using tools like Mozilla Sops }
+}{Argocd, Terraform, Ansible, Packer, Prometheus, Grafana, Kubernetes, Docker, AWS, GCP, Jenkins, Bitbucket Pipelines, Haproxy}
+
+%
+\cveventwithkeywords{Jul 2019 - Feb 2021}{DevOps Engineer}{Jeitto}{
+	{Led the Project of Migrating the Monolyth to a Microservices Architecture using Kubernetes},
+    {Supported the development team with the infrastructure and deployment of the projects},
+    {Gathered the right people to build a reliable monitoring system so the clients stoped complaining about the system being down},
+    {Wrote a Python Logging class that enabled all our Python Applications to logs to be ingested correctly by Google Cloud Logging},
+    {Developed a tool that enabled developers to see kubernetes logs that were in json format more clearly},
+    {Developed a tool to mask our database sensitive data so we could use it in test environments},
+    {Automated development environments using pulumi and Gocd, so developers could have quickly have a testing environment similar to production},
+    {Found and fixed Postgres slow queries that were causing the system to be slow}
+}{Go, Python, Prometheus, Grafana, Postgres, Kubernetes, Kustomize}
+
+%\textcolor{softcol}{\hrule}
+
+%
+\cveventwithkeywords{Aug 2017 - Mar 2019}{DevOps Engineer}{Airfluencers}{
+	{Led the Project of Migrating the Monolyth to a Microservices Architecture using Kubernetes},
+    {Supported the development team with the infrastructure and deployment of the projects},
+	{Implemented CI/CD pipelines using Gitlab, Docker, Kubernetes ,Helm ,Kustomize and Jenkins},
+	{Implemented a monitoring system using Prometheus and Grafana},
+    {Implemented a alerting system using grafana and Pagerduty}
+}{Kubernetes, Helm, Kustomize, Jenkins, Gitlab, Pagerduty, AWS, GCP}
+
+%\textcolor{softcol}{\hrule}
+
+%
+\cveventwithkeywords{Jan 2016 - Mar 2017}{System Administrator}{FLAGCX}{
+    {Developed a tool on Ruby to split the AWS billing to multiple agencies of the company},
+    {Supported the development team with the infrastructure and deployment of the projects},
+    {Estimated the cost of the infrastructure for the projects},
+    {Implemented a monitoring system using Prometheus and Grafana}
+}{AWS, Saltstack, Nginx, Apache, Ruby, Python, Prometheus, Grafana}
+
+%\textcolor{softcol}{\hrule}
+
+%
+\cveventwithkeywords{Jan 2013 - Dec 2015}{Full Stack Developer}{Qiwi Brasil/Rede Piu}{
+    {Led the design of the interface, architecture, infrastructure and code of a web version of the company payment system using Python, postgres and Django},
+    {Provisioned our servers using chef, ubuntu and aws, automated the local testing using chef kitchen-vagrant and docker}
+}{AWS, EC2, RDS, Route53, Ubuntu, Chef, Nginx, Python, Django, Docker, Postgres, Supervidord}
+
+\cvevent{Mar 2012 - Oct 2012}{Frontend Developer}{Input Center}{
+    {Development of websites using HTML, CSS, Jquery and Javascript based on Photoshop and Fireworks Layouts}
+}
+
+\cvevent{Sep 2010 - Mar 2012}{Flash, Actionscript 3 Developer}{Naked Lá na Vila}{
+    {Developed educational flash applications for one of our clients using Flash and Actionscript 3.},
+    {Developed advertising banners for our clients using Flash and Actionscript 3.},
+    {Development of hotsites using flash and actionscript 3.}
+}
+%---------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%--------------------------------------------------------------------------------------
+\cvsection{Projects}
+
+\cvevent{2021}{2D RPG Game}{Github}{
+{Developed this game to practice the Go language, it was a fun project to do, I used no game engine because I was interested learning the design patterns involved in game designs},{\url{https://github.com/prkstaff/2drpg}}}
+}
+
+%\textcolor{softcol}{\hrule}
+
+%
+\cvevent{2017}{A Snake Game using C++ and SDL}{Github}{
+{Developed this game to learn C++ and SDL, it was a fun project to do, I used no game engine because I was interested learning the design patterns involved in game designs},{\url{https://github.com/prkstaff/snake\_game\_on\_sdl}}}
+}
+
+%\textcolor{softcol}{\hrule}
+
+
+
+%============================================================================%
+%
+%
+%
+%	DOCUMENT END
+%
+%
+%
+%============================================================================%
+\end{document}
