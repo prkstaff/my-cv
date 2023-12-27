@@ -10,8 +10,3 @@ sudo dnf install texlive-scheme-full
 ```bash
 pdflatex main.tex build
 ```
-
-## Vimtex Live Preview
-\ll
-
-[here](https://github.com/lervag/vimtex) for more info

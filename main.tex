@@ -9,7 +9,7 @@
 %	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 %	copies of the Software, and to permit persons to whom the Software is
 %	furnished to do so, subject to the following conditions:
-%	
+%
 %	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 %	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 %	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -17,7 +17,7 @@
 %	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 %	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %	THE SOFTWARE.
-%	
+%
 %
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
 
@@ -29,7 +29,7 @@
 %============================================================================%
 
 %we use article class because we want to fully customize the page and dont use a cv template
-\documentclass[10pt,A4]{article}	
+\documentclass[10pt,A4]{article}
 
 
 %----------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@
 %----------------------------------------------------------------------------------------
 
 %we use utf8 since we want to build from any machine
-\usepackage[utf8]{inputenc}		
+\usepackage[utf8]{inputenc}
 
 %----------------------------------------------------------------------------------------
 %	LOGIC
@@ -59,14 +59,14 @@
 %\usepackage{fetamont}
 %\usepackage[default]{gillius}
 %\usepackage[light,math]{iwona}
-%\usepackage[thin]{roboto} 
+%\usepackage[thin]{roboto}
 
 % set font default
-\renewcommand*\familydefault{\sfdefault} 	
+\renewcommand*\familydefault{\sfdefault}
 \usepackage[T1]{fontenc}
 
 % more font size definitions
-\usepackage{moresize}		
+\usepackage{moresize}
 
 
 %----------------------------------------------------------------------------------------
@@ -74,21 +74,21 @@
 %----------------------------------------------------------------------------------------
 
 %debug page outer frames
-%\usepackage{showframe}			
+%\usepackage{showframe}
 
 
 %define page styles using geometry
-\usepackage[a4paper]{geometry}		
+\usepackage[a4paper]{geometry}
 
 % for example, change the margins to 2 inches all round
-\geometry{top=1.25cm, bottom=-.6cm, left=1.5cm, right=1.5cm} 	
+\geometry{top=1.25cm, bottom=-.6cm, left=1.5cm, right=1.5cm}
 
 %use customized header
-\usepackage{fancyhdr}				
+\usepackage{fancyhdr}
 \pagestyle{fancy}
 
 %less space between header and content
-\setlength{\headheight}{-5pt}		
+\setlength{\headheight}{-5pt}
 
 
 %customize entries left, center and right
@@ -102,10 +102,10 @@
 
 %----------------------------------------------------------------------------------------
 %	TABLE /ARRAY DEFINITIONS
-%---------------------------------------------------------------------------------------- 
+%----------------------------------------------------------------------------------------
 
 %for layouting tables
-\usepackage{multicol}			
+\usepackage{multicol}
 \usepackage{multirow}
 
 %extended aligning of tabular cells
@@ -117,7 +117,7 @@
 
 %----------------------------------------------------------------------------------------
 %	GRAPHICS DEFINITIONS
-%---------------------------------------------------------------------------------------- 
+%----------------------------------------------------------------------------------------
 
 %for header image
 \usepackage{graphicx}
@@ -125,17 +125,17 @@
 %for floating figures
 \usepackage{wrapfig}
 \usepackage{float}
-%\floatstyle{boxed} 
+%\floatstyle{boxed}
 %\restylefloat{figure}
 
-%for drawing graphics		
-\usepackage{tikz}				
+%for drawing graphics
+\usepackage{tikz}
 \usetikzlibrary{shapes, backgrounds,mindmap, trees}
 
 
 %----------------------------------------------------------------------------------------
 %	Color DEFINITIONS
-%---------------------------------------------------------------------------------------- 
+%----------------------------------------------------------------------------------------
 
 \usepackage{color}
 
@@ -162,23 +162,23 @@
 %----------------------------------------------------------------------------------------
 
 % remove top header line
-\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\headrulewidth}{0pt}
 
 %remove botttom header line
-\renewcommand{\footrulewidth}{0pt}	  	
+\renewcommand{\footrulewidth}{0pt}
 
 %remove pagenum
-\renewcommand{\thepage}{}	
+\renewcommand{\thepage}{}
 
-%remove section num		
-\renewcommand{\thesection}{}			
+%remove section num
+\renewcommand{\thesection}{}
 
 %----------------------------------------------------------------------------------------
 % 	ARROW GRAPHICS in Tikz
 %----------------------------------------------------------------------------------------
 
 % a six pointed arrow poiting to the left
-\newcommand{\tzlarrow}{(0,0) -- (0.2,0) -- (0.3,0.2) -- (0.2,0.4) -- (0,0.4) -- (0.1,0.2) -- cycle;}	
+\newcommand{\tzlarrow}{(0,0) -- (0.2,0) -- (0.3,0.2) -- (0.2,0.4) -- (0,0.4) -- (0.1,0.2) -- cycle;}
 
 % include the left arrow into a tikz picture
 % param1: fill color
@@ -231,7 +231,7 @@
 %	 CV EVENT
 %----------------------------------------------------------------------------------------
 
-% creates a stretched box as cv entry headline followed by some paragraphs about 
+% creates a stretched box as cv entry headline followed by some paragraphs about
 % the work you did
 % param 1:	event time i.e. 2014 or 2011-2014 etc.
 % param 2:	event name (what did you do?)
@@ -252,7 +252,7 @@
 	\foreach \desc in {#4}{
 		$\cdot$ \desc\\[3pt]
 	}
-	
+
 \vspace{3pt}
 }
 
@@ -275,7 +275,7 @@
 \vspace{3pt}
 
 }
-% creates a stretched box as 
+% creates a stretched box as
 \newcommand{\cveventmeta}[2]
 {
 	\mbox{\mystrut \hspace{87pt}\textit{#1}}\\
@@ -308,7 +308,7 @@
 
 
 %use our custom fancy header definitions
-\pagestyle{fancy}	
+\pagestyle{fancy}
 
 
 
@@ -342,7 +342,7 @@
 %---------------------------------------------------------------------------------------
 %	META SECTION
 %----------------------------------------------------------------------------------------
-\metasection{São paulo, Brazil}{\textbf{Fields:} Software Engineering} 
+\metasection{São paulo, Brazil}{\textbf{Fields:} Software Engineering}
 \metasection{renato.prado.xyz@gmail.com}{\textbf{Techs:} Kubernetes, Terraform, Ansible, Packer, Argocd, AWS, GCP}
 \metasection{+55 11 96999 7509}{\textbf{Programming Languages:} Python, Bash, Go, Javascript}
 \metasection{13/11/1990}{\textbf{github:} prkstaff}
@@ -389,9 +389,10 @@ I started my career as a developer and I've worked with Actionscript, Javascript
     {Cut the costs of the Kubernetes Cluster by 75\% by fixing pods requirements and autoscaling strategies},
     {Secured the Kubernetes Infrastructure by implementing IAC and CAC and GitOps using Terraform, Terragrunt and Argocd},
     {Recovered a broken Production Kubernetes Cluster by thankfully had implemented IAC and CAC before},
+		{Reduced the time of Image build on many pipelines, some took 15 minutes to build, reduced using caching, dockerignore and better image bases },
     {Supported the development team with the infrastructure and deployment of the projects},
     {Secured our Haproxy by implementing Hight Availability architecture},
-	{Implemented a monitoring system using Prometheus and Grafana},
+		{Implemented a monitoring system using Prometheus and Grafana},
     {Implemented a alerting system using grafana and Pagerduty},
     {Maintained and created Elastic Beanstalk environments},
     {Implemented Twingate Zero Trust network for the company so we could have a secure access to our cloud resources},
@@ -406,6 +407,7 @@ I started my career as a developer and I've worked with Actionscript, Javascript
 	{Led the Project of Migrating the Monolyth to a Microservices Architecture using Kubernetes},
     {Supported the development team with the infrastructure and deployment of the projects},
     {Gathered the right people to build a reliable monitoring system so the clients stoped complaining about the system being down},
+		{Reduced the time of Image build on many pipelines, some took 15 minutes to build, reduced using caching, dockerignore and better image bases },
     {Wrote a Python Logging class that enabled all our Python Applications to logs to be ingested correctly by Google Cloud Logging},
     {Developed a tool that enabled developers to see kubernetes logs that were in json format more clearly},
     {Developed a tool to mask our database sensitive data so we could use it in test environments},
@@ -418,11 +420,11 @@ I started my career as a developer and I've worked with Actionscript, Javascript
 %
 \cveventwithkeywords{Aug 2017 - Mar 2019}{DevOps Engineer}{Airfluencers}{
 	{Led the Project of Migrating the Monolyth to a Microservices Architecture using Kubernetes},
-    {Supported the development team with the infrastructure and deployment of the projects},
+	{Supported the development team with the infrastructure and deployment of the projects},
 	{Implemented CI/CD pipelines using Gitlab, Docker, Kubernetes ,Helm ,Kustomize and Jenkins},
-	{Implemented a monitoring system using Prometheus and Grafana},
-    {Implemented a alerting system using grafana and Pagerduty}
-}{Kubernetes, Helm, Kustomize, Jenkins, Gitlab, Pagerduty, AWS, GCP}
+	{Implemented a monitoring system using at first using datadog, later we migrated to Prometheus and Grafana},
+	{Implemented a alerting system using grafana and Pagerduty}
+}{Kubernetes, Helm, datadog, Kustomize, Jenkins, Gitlab, Pagerduty, AWS, GCP}
 
 %\textcolor{softcol}{\hrule}
 
@@ -455,6 +457,14 @@ I started my career as a developer and I've worked with Actionscript, Javascript
 %	EDUCATION SECTION
 %--------------------------------------------------------------------------------------
 \cvsection{Projects}
+
+\cvevent{2023-current}{Registra and Web Crawling}{Github}{
+{Go Web Crawling using Colly},
+{Go Web Templating},
+{Tailwind CSS},
+{Infrastructure using Lightweight Kubernetes Kind},
+{Local Kubernetes testing with Kind},
+{OCI as Cloud Infrastructure}}
 
 \cvevent{2021}{2D RPG Game}{Github}{
 {Developed this game to practice the Go language, it was a fun project to do, I used no game engine because I was interested learning the design patterns involved in game designs},{\url{https://github.com/prkstaff/2drpg}}
