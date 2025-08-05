@@ -81,14 +81,15 @@
 \usepackage[a4paper]{geometry}
 
 % for example, change the margins to 2 inches all round
-\geometry{top=1.25cm, bottom=-.6cm, left=1.5cm, right=1.5cm}
+\geometry{top=1.25cm, bottom=1.5cm, left=1.5cm, right=1.5cm}
+\addtolength{\topmargin}{-17.0pt}
 
 %use customized header
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
 %less space between header and content
-\setlength{\headheight}{-5pt}
+\setlength{\headheight}{12pt}
 
 
 %customize entries left, center and right
@@ -131,6 +132,9 @@
 %for drawing graphics
 \usepackage{tikz}
 \usetikzlibrary{shapes, backgrounds,mindmap, trees}
+
+%for URLs
+\usepackage{url}
 
 
 %----------------------------------------------------------------------------------------
@@ -241,7 +245,7 @@
 \newcommand{\cvevent}[4]
 {
 
-\begin{tabular*}{1\textwidth}{p{13.6cm}  x{3.9cm}}
+\begin{tabular*}{1\textwidth}{p{13.0cm}  x{4.5cm}}
 	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
 \end{tabular*}
 
@@ -259,7 +263,7 @@
 \newcommand{\cveventwithkeywords}[5]
 {
 
-\begin{tabular*}{1\textwidth}{p{13.6cm}  x{3.9cm}}
+\begin{tabular*}{1\textwidth}{p{13.0cm}  x{4.5cm}}
 	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
 \end{tabular*}
 
@@ -270,7 +274,7 @@
 	\foreach \desc in {#4}{
 		$\cdot$ \desc\\[3pt]
     }
-+{\setlength{\parindent}{7pt} \footnotesize \textbf{Skills:} #5}\\
+{\setlength{\parindent}{7pt} \footnotesize \textbf{Skills:} #5}\\
 
 \vspace{3pt}
 
@@ -343,9 +347,9 @@
 %	META SECTION
 %----------------------------------------------------------------------------------------
 \metasection{São paulo, Brazil}{\textbf{Fields:} Software Engineering}
-\metasection{renato.prado.xyz@gmail.com}{\textbf{Techs:} Kubernetes, Terraform, Ansible, Packer, Argocd, AWS, GCP}
-\metasection{+55 11 96999 7509}{\textbf{Programming Languages:} Python, Bash, Go, Javascript}
-\metasection{13/11/1990}{\textbf{github:} prkstaff}
+\metasection{renato.prado.xyz@gmail.com}{\textbf{Techs:} Kubernetes, Terraform, Ansible, Packer, ArgoCD, AWS, GCP}
+\metasection{+55 11 96999 7509}{\textbf{Programming Languages:} Python, Bash, Go, JavaScript}
+\metasection{13/11/1990}{\textbf{GitHub:} prkstaff}
 \vspace{-2pt}
 \textcolor{softcol}{\hrule}
 \vspace{6pt}
@@ -357,16 +361,16 @@
 %----------------------------------------------------------------------------------------
 \vspace{-6pt}
 \cvsection{Summary}
-I'm passionate about automating processes, maintaining reliable systems, and helping developers deliver their code.\\
+I'm passionate about automating processes, maintaining reliable systems, and enabling developers to deliver code efficiently.\\
 
-\textbf{6+ Years working with Kubernetes cluster administration:}\\
-I've helped companies to migrate their products to a Kubernetes environment, I've setup new cluster but also maintained and improved existing ones. I use Terraform and ArgoCD to automate the cluster and deployments so few manual steps are required even in the case of a cluster recreation. I've setup workloads scaling based on istio and custom metrics.\\
+\textbf{6+ Years of Kubernetes cluster administration:}\\
+I've helped companies migrate their products to Kubernetes environments, setting up new clusters while maintaining and improving existing ones. I use Terraform and ArgoCD to automate cluster provisioning and deployments, minimizing manual intervention even during cluster recreation. I've implemented workload scaling based on Istio and custom metrics.\\
 
-\textbf{3+ Years working with IAC and CAC:}\\
-I want to bring to my clients infrastructures that are auditable, that can reflect what is under version control, that can be immutable when possible. For these purposes I use tools like Terraform, Ansible and Packer and Docker.\\
+\textbf{3+ Years of Infrastructure as Code (IaC) and Configuration as Code (CaC):}\\
+I deliver auditable infrastructures that reflect version-controlled configurations and maintain immutability where possible. I leverage tools like Terraform, Ansible, Packer, and Docker to achieve these objectives.\\
 
 \textbf{Programming background:}\\
-I started my career as a developer and I've worked with Actionscript, Javascript and Python. I've also worked with frameworks like Django and Flask. This background helped me to write some programs that was useful to my clients.\\
+I began my career as a developer, working with ActionScript, JavaScript, and Python, including frameworks like Django and Flask. This programming foundation enables me to develop custom tools and automation solutions that deliver value to my clients.\\
 
 %============================================================================%
 %
@@ -380,91 +384,91 @@ I started my career as a developer and I've worked with Actionscript, Javascript
 \cvsection{Experience}
 
 \cveventwithkeywords{February 2024 - Present}{DevOps Engineer}{FEVO}{
-    {Help the company to maintain Kubernetes cluster/workloads},
-    {Change/Improve/maintain all the cloud resources in terraform/Terraform Cloud},
-    {I wrote a python script that rendered the kubernetes manifests from the argocd application declaration and then compared with the live manifests, this made it possible to have fast feedbacks after changes},
-    {Change/Improve/maintain all the cloud resources in terraform/Terraform Cloud},
-    {Wrote github actions and workflows to automate argocd deployments that were used in several repositories},
-    {I created a library helm chart that were used to centralize common environments variables across several argocd regions},
-    {I setup argocd waves/postsync to run qa automation and cache invalidations},
-    {Updgraded argocd versions to the latest},
-    {Improved kubernetes workloads memory and cpu requests},
-    {Setup keda autoscaling}
+    {Maintain Kubernetes clusters and workloads for the company},
+    {Manage and improve cloud resources using Terraform and Terraform Cloud},
+    {Developed a Python script to render Kubernetes manifests from ArgoCD application declarations and compare them with live manifests, enabling rapid feedback on changes},
+    {Manage and improve cloud resources using Terraform and Terraform Cloud},
+    {Created GitHub Actions workflows to automate ArgoCD deployments across multiple repositories},
+    {Built a library Helm chart to centralize common environment variables across multiple ArgoCD regions},
+    {Configured ArgoCD waves and postsync hooks to execute QA automation and cache invalidations},
+    {Upgraded ArgoCD to the latest versions},
+    {Optimized Kubernetes workload memory and CPU requests},
+    {Implemented KEDA autoscaling}
 }{OCI, AWS, Kubernetes, Golang, Go}
 
 \cveventwithkeywords{July 2023 - February 2024}{DevOps Engineer}{Zipdev}{
-    {Wrote a script to Migrate 150 repositories from Bitbucket to Github that included permissions, pull requests, branches and tags},
-    {On-Call Rotations},
-    {Two Oracle cloud certifications}
+    {Developed migration script to transfer 150 repositories from Bitbucket to GitHub, including permissions, pull requests, branches, and tags},
+    {Participated in on-call rotations for production systems},
+    {Achieved two Oracle Cloud certifications}
 }{OCI, AWS, Kubernetes, Golang, Go}
 
 \cveventwithkeywords{Jun 2021 - July 2023}{DevOps Engineer}{Joyjet Digital}{
-    {Cut the costs of the Kubernetes Cluster by 75\% by fixing pods requirements and autoscaling strategies},
-    {Secured the Kubernetes Infrastructure by implementing IAC and CAC and GitOps using Terraform, Terragrunt and Argocd},
-    {Recovered a broken Production Kubernetes Cluster by thankfully had implemented IAC and CAC before},
-		{Reduced the time of Image build on many pipelines, some took 15 minutes to build, reduced using caching, dockerignore and better image bases },
-    {Supported the development team with the infrastructure and deployment of the projects},
-    {Secured our Haproxy by implementing Hight Availability architecture},
-		{Implemented a monitoring system using Prometheus and Grafana},
-    {Implemented a alerting system using grafana and Pagerduty},
+    {Reduced Kubernetes cluster costs by 75\% through optimized pod resource requirements and autoscaling strategies},
+    {Secured Kubernetes infrastructure by implementing IaC, CaC, and GitOps using Terraform, Terragrunt, and ArgoCD},
+    {Successfully recovered a broken production Kubernetes cluster leveraging previously implemented IaC and CaC},
+    {Reduced Docker image build times from 15 minutes to minutes using caching, dockerignore optimization, and improved base images},
+    {Provided infrastructure support and deployment assistance to development teams},
+    {Secured HAProxy infrastructure by implementing High Availability architecture},
+    {Implemented monitoring system using Prometheus and Grafana},
+    {Implemented alerting system using Grafana and PagerDuty},
     {Maintained and created Elastic Beanstalk environments},
-    {Implemented Twingate Zero Trust network for the company so we could have a secure access to our cloud resources},
-    {Implemented an Api Caching system using Varnish so we could reduce the load on our servers},
+    {Implemented Twingate Zero Trust network architecture for secure cloud resource access},
+    {Implemented API caching system using Varnish to reduce server load},
     {Maintained Jenkins CI/CD pipelines},
-    {Scaled workloads using istio and custom metrics using prometheus and Keda},
-    {Secured sensitive data under version control using tools like Mozilla Sops }
-}{Argocd, Terraform, Ansible, Packer, Prometheus, Grafana, Kubernetes, Docker, AWS, GCP, Jenkins, Bitbucket Pipelines, Haproxy}
+    {Scaled workloads using Istio and custom metrics with Prometheus and KEDA},
+    {Secured sensitive data in version control using Mozilla SOPS}
+}{ArgoCD, Terraform, Ansible, Packer, Prometheus, Grafana, Kubernetes, Docker, AWS, GCP, Jenkins, Bitbucket Pipelines, HAProxy}
 
 %
 \cveventwithkeywords{Jul 2019 - Feb 2021}{DevOps Engineer}{Jeitto}{
-	{Led the Project of Migrating the Monolyth to a Microservices Architecture using Kubernetes},
-    {Supported the development team with the infrastructure and deployment of the projects},
-    {Gathered the right people to build a reliable monitoring system so the clients stoped complaining about the system being down},
-		{Reduced the time of Image build on many pipelines, some took 15 minutes to build, reduced using caching, dockerignore and better image bases },
-    {Wrote a Python Logging class that enabled all our Python Applications to logs to be ingested correctly by Google Cloud Logging},
-    {Developed a tool that enabled developers to see kubernetes logs that were in json format more clearly},
-    {Developed a tool to mask our database sensitive data so we could use it in test environments},
-    {Automated development environments using pulumi and Gocd, so developers could have quickly have a testing environment similar to production},
-    {Found and fixed Postgres slow queries that were causing the system to be slow}
-}{Go, Python, Prometheus, Grafana, Postgres, Kubernetes, Kustomize}
+    {Led the migration project from monolith to microservices architecture using Kubernetes},
+    {Provided infrastructure support and deployment assistance to development teams},
+    {Assembled a team to build a reliable monitoring system, resolving client complaints about system downtime},
+    {Reduced Docker image build times from 15 minutes to minutes using caching, dockerignore optimization, and improved base images},
+    {Developed a Python logging class enabling proper log ingestion by Google Cloud Logging for all Python applications},
+    {Created a tool to improve readability of JSON-formatted Kubernetes logs for developers},
+    {Built a data masking tool to safely use production database data in test environments},
+    {Automated development environments using Pulumi and GoCD, enabling developers to quickly provision production-like testing environments},
+    {Identified and optimized slow PostgreSQL queries to improve system performance}
+}{Go, Python, Prometheus, Grafana, PostgreSQL, Kubernetes, Kustomize}
 
 %\textcolor{softcol}{\hrule}
 
 %
 \cveventwithkeywords{Aug 2017 - Mar 2019}{DevOps Engineer}{Airfluencers}{
-	{Led the Project of Migrating the Monolyth to a Microservices Architecture using Kubernetes},
-	{Supported the development team with the infrastructure and deployment of the projects},
-	{Implemented CI/CD pipelines using Gitlab, Docker, Kubernetes ,Helm ,Kustomize and Jenkins},
-	{Implemented a monitoring system using at first using datadog, later we migrated to Prometheus and Grafana},
-	{Implemented a alerting system using grafana and Pagerduty}
-}{Kubernetes, Helm, datadog, Kustomize, Jenkins, Gitlab, Pagerduty, AWS, GCP}
+    {Led the migration project from monolith to microservices architecture using Kubernetes},
+    {Provided infrastructure support and deployment assistance to development teams},
+    {Implemented CI/CD pipelines using GitLab, Docker, Kubernetes, Helm, Kustomize, and Jenkins},
+    {Implemented monitoring system initially with Datadog, later migrated to Prometheus and Grafana},
+    {Implemented alerting system using Grafana and PagerDuty}
+}{Kubernetes, Helm, Datadog, Kustomize, Jenkins, GitLab, PagerDuty, AWS, GCP}
 
 %\textcolor{softcol}{\hrule}
 
 %
 \cveventwithkeywords{Jan 2016 - Mar 2017}{System Administrator}{FLAGCX}{
-    {Developed a tool on Ruby to split the AWS billing to multiple agencies of the company},
-    {Supported the development team with the infrastructure and deployment of the projects},
-    {Estimated the cost of the infrastructure for the projects},
+    {Developed a Ruby tool to allocate AWS billing across multiple company agencies},
+    {Provided infrastructure support and deployment assistance to development teams},
+    {Performed infrastructure cost estimation for projects},
     {Implemented a monitoring system using Prometheus and Grafana}
-}{AWS, Saltstack, Nginx, Apache, Ruby, Python, Prometheus, Grafana}
+}{AWS, SaltStack, Nginx, Apache, Ruby, Python, Prometheus, Grafana}
 
 %\textcolor{softcol}{\hrule}
 
 %
 \cveventwithkeywords{Jan 2013 - Dec 2015}{Full Stack Developer}{Qiwi Brasil/Rede Piu}{
-    {Led the design of the interface, architecture, infrastructure and code of a web version of the company payment system using Python, postgres and Django},
-    {Provisioned our servers using chef, ubuntu and aws, automated the local testing using chef kitchen-vagrant and docker}
-}{AWS, EC2, RDS, Route53, Ubuntu, Chef, Nginx, Python, Django, Docker, Postgres, Supervidord}
+    {Led the design and development of a web-based payment system including interface, architecture, infrastructure, and code using Python, PostgreSQL, and Django},
+    {Provisioned servers using Chef, Ubuntu, and AWS; automated local testing with Chef Kitchen, Vagrant, and Docker}
+}{AWS, EC2, RDS, Route53, Ubuntu, Chef, Nginx, Python, Django, Docker, PostgreSQL, Supervisor}
 
 \cvevent{Mar 2012 - Oct 2012}{Frontend Developer}{Input Center}{
-    {Development of websites using HTML, CSS, Jquery and Javascript based on Photoshop and Fireworks Layouts}
+    {Developed websites using HTML, CSS, jQuery, and JavaScript based on Photoshop and Fireworks layouts}
 }
 
 \cvevent{Sep 2010 - Mar 2012}{Flash, Actionscript 3 Developer}{Naked Lá na Vila}{
-    {Developed educational flash applications for one of our clients using Flash and Actionscript 3.},
-    {Developed advertising banners for our clients using Flash and Actionscript 3.},
-    {Development of hotsites using flash and actionscript 3.}
+    {Developed educational Flash applications for clients using Flash and ActionScript 3},
+    {Created advertising banners for clients using Flash and ActionScript 3},
+    {Developed promotional websites using Flash and ActionScript 3}
 }
 %---------------------------------------------------------------------------------------
 %	EDUCATION SECTION
@@ -472,22 +476,22 @@ I started my career as a developer and I've worked with Actionscript, Javascript
 \cvsection{Projects}
 
 \cvevent{2023-current}{Registra and Web Crawling}{Github}{
-{Go Web Crawling using Colly},
-{Go Web Templating},
+{Web crawling implementation using Go and Colly framework},
+{Web templating with Go},
 {Tailwind CSS},
-{Infrastructure using Lightweight Kubernetes Kind},
-{Local Kubernetes testing with Kind},
-{OCI as Cloud Infrastructure}}
+{Lightweight Kubernetes infrastructure using Kind},
+{Local Kubernetes testing environment with Kind},
+{Cloud infrastructure deployment on Oracle Cloud Infrastructure (OCI)}}
 
 \cvevent{2021}{2D RPG Game}{Github}{
-{Developed this game to practice the Go language, it was a fun project to do, I used no game engine because I was interested learning the design patterns involved in game designs},{\url{https://github.com/prkstaff/2drpg}}
+{Developed this 2D RPG game to practice Go programming, implementing game design patterns without using a game engine},{\url{https://github.com/prkstaff/2drpg}}
 }
 
 %\textcolor{softcol}{\hrule}
 
 %
 \cvevent{2017}{A Snake Game using C++ and SDL}{Github}{
-{Developed this game to learn C++ and SDL, it was a fun project to do, I used no game engine because I was interested learning the design patterns involved in game designs},{\url{https://github.com/prkstaff/snake\_game\_on\_sdl}}}
+{Created this Snake game to learn C++ and SDL, implementing game design patterns from scratch without using a game engine},{\url{https://github.com/prkstaff/snake\_game\_on\_sdl}}}
 
 
 %\textcolor{softcol}{\hrule}
